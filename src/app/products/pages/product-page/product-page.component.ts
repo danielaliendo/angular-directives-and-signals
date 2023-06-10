@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'products-product-page',
@@ -8,5 +9,17 @@ import { Component } from '@angular/core';
 })
 
 export class ProductPageComponent {
+
+  private fb = inject(FormBuilder);
+
+  public color: string = 'red';
+
+  public form: FormGroup = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(6), Validators.email]],
+  });
+
+  changeColor() {
+    this.color  = '#xxxxxx'.replace(/x/g, y=>(Math.random()*16|0).toString(16));
+  }
 
 }

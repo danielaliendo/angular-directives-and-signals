@@ -3,19 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 const routes: Routes = [
-   {
-      path: '',
-      children: [
-        {
-          path: 'product',
-          component: ProductPageComponent
-        },
-        {
-          path: '**',
-          redirectTo: 'product'
-        }
-      ]
-   }
+  {
+    path: '',
+    children: [
+      {
+        path: 'product',
+        component: ProductPageComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'product'
+      }
+    ]
+  }
 ];
 
 @NgModule({
